@@ -1,4 +1,7 @@
+"use client"
+
 import { useEffect, useMemo, useRef, useState } from "react"
+import { authClient } from "@/lib/auth-client"
 import { StoreProvider, useRouter, useStore } from "./app-state"
 import { CancelAppointmentModal, PageHeading, Toggle } from "./components/ui"
 import { FigmaHeader } from "./components/figma/FigmaHeader"
@@ -78,11 +81,12 @@ function Sidebar({ page, onNavigate }: { page: Page; onNavigate: Navigate }) {
           <span>♙</span> Perfil
         </button>
         <button
-          onClick={() =>
-            notify("Demonstração: não há login real; sessão não encerrada.")
-          }
+          onClick={async () => {
+            await authClient.signOut()
+            window.location.assign("/entrar")
+          }}
         >
-          <span>↪</span> Sair
+          <span aria-hidden="true">↪</span> Sair
         </button>
       </div>
     </aside>
@@ -2036,6 +2040,10 @@ function Shell() {
 }
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.pathname === "/") window.history.replaceState({}, "", "/")
+  }, [])
+
   return (
     <StoreProvider>
       <Shell />

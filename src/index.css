@@ -1,5 +1,22 @@
 @import 'tailwindcss';
 
+.auth-shell { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; background: radial-gradient(circle at 50% 0%, #173d29 0%, #071e13 45%, #050806 100%); color: #f8f7f3; }
+.auth-card { width: min(100%, 28rem); padding: 2.5rem; border: 1px solid rgb(255 255 255 / .12); border-radius: 1.5rem; background: rgb(11 18 13 / .88); box-shadow: 0 2rem 5rem rgb(0 0 0 / .35); backdrop-filter: blur(1rem); }
+.auth-mark { display: grid; place-items: center; width: 3.25rem; aspect-ratio: 1; border: 1px solid #c7a566; border-radius: .75rem; color: #c7a566; font: 700 1.5rem/1 Georgia, serif; }
+.auth-eyebrow { margin: 1.5rem 0 .5rem; color: #c7a566; font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.auth-card h1 { margin: 0; font-size: clamp(2rem, 7vw, 2.75rem); line-height: 1; letter-spacing: -.04em; }
+.auth-copy { margin: .85rem 0 2rem; color: #b8c2ba; line-height: 1.6; }
+.auth-form { display: grid; gap: 1rem; }
+.auth-form label { display: grid; gap: .45rem; color: #dce4dd; font-size: .875rem; font-weight: 600; }
+.auth-form input { min-height: 3rem; border: 1px solid rgb(255 255 255 / .14); border-radius: .75rem; padding: 0 .9rem; background: rgb(255 255 255 / .055); color: white; outline: none; }
+.auth-form input:focus-visible { border-color: #c7a566; box-shadow: 0 0 0 3px rgb(199 165 102 / .2); }
+.auth-form button { min-height: 3rem; margin-top: .5rem; border: 0; border-radius: .75rem; background: #c7a566; color: #17140e; font-weight: 800; cursor: pointer; }
+.auth-form button:disabled { cursor: wait; opacity: .7; }
+.auth-error { margin: 0; padding: .75rem; border-radius: .65rem; background: rgb(181 52 56 / .18); color: #ffb4b7; font-size: .875rem; }
+.auth-switch { margin: 1.5rem 0 0; color: #aab4ac; font-size: .875rem; text-align: center; }
+.auth-switch a { color: #e3c98f; font-weight: 700; }
+@media (max-width: 480px) { .auth-card { padding: 1.5rem; } }
+
 @theme {
   --color-accent-black: #1D1D1C;
   --color-accent-gold: #C7A566;
